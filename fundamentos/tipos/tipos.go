@@ -2,16 +2,15 @@ package main
 
 import (
 	"fmt"
-	"reflect"
 	"math"
+	"reflect"
 )
-
 
 func main() {
 	//inteiros
-	fmt.Println(1,2,3)
+	fmt.Println(1, 2, 3)
 	fmt.Println("Tipos", reflect.TypeOf(1))
-// 	  inteiros sem sinal
+	// 	  inteiros sem sinal
 	var b byte = 255
 
 	fmt.Println("O valor em byte é", reflect.TypeOf(b))
@@ -20,5 +19,5 @@ func main() {
 
 	i1 := math.MaxInt64
 	fmt.Println("O valor maximo de int é", i1)
-	
+
 }
