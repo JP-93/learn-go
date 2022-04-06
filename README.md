@@ -1,1 +1,1 @@
-# lear_go
+# learn go

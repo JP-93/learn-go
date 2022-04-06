@@ -5,40 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cac39cab-15dc-4f83-9bfe-ffef42a01c8a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/arrayslicemap/map1/map.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/arrayslicemap/map2/map.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/arrayslicemap/map3/map.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/arrayslicemap/slice/append/appendcopy.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/arrayslicemap/slice/arrayinterno/arrayinterno.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/arrayslicemap/slice/slice1/slice.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicio/Encaixa/encaixa.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicio/combustivel/combustivel.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicio/cont-letras/letras.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicio/crypto/cripto.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicio/dojo-4/dd.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicio/dojo-5/palavras.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicio/refac-animal/animal/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicio/senha_fixa/senha.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicio/tabuada/tabuada.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicio/um-dois-tres/palavras.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exercicio/vetor1/vetor.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funcoes/Retornonomeado/retorno.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funcoes/basicas/funcoesbasicas.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funcoes/closuer/closure.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funcoes/comparametro/funcaopar.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funcoes/init/init.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funcoes/pilha/pilha.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funcoes/ponteiro/ponteiro.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funcoes/primeiraclasse/primeiraclasse.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funcoes/recursividade/recursivo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funcoes/variadica/variadica.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funcoes/variadica2/variadicaslice.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tipos/struct/struct.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conversao/conversao.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prints/prints.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tipos/tipos.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/variaveis/constvar.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zeros/zeros.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tipos/struct-aninhada/aninhada.go" beforeDir="false" afterPath="$PROJECT_DIR$/tipos/struct-aninhada/aninhada.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,6 +189,7 @@
       <workItem from="1649013587475" duration="2136000" />
       <workItem from="1649069495237" duration="4846000" />
       <workItem from="1649098733189" duration="123000" />
+      <workItem from="1649255272133" duration="1090000" />
     </task>
     <servers />
   </component>
