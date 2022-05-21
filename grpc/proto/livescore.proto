@@ -1,0 +1,19 @@
+syntax = "proto3";
+option go_package = "livescore";
+
+service ScoreService{
+    rpc ListMatches(ListMatchesRequest) returns(ListMatchesResponse);
+}
+
+message ListMatchesRequest{
+    string country = 1;
+}
+
+message MatchScoreResponse{
+    string score = 1;
+    bool live = 2;
+}
+
+message ListMatchesResponse {
+    repeated MatchScoreResponse scores = 1;
+}
