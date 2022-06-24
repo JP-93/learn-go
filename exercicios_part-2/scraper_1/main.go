@@ -7,7 +7,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-// fazer request para a pagina para receber o html e tratar os dados
+// fazer request para a pagina para receber o templates e tratar os dados
 
 func check(err error) {
 	if err != nil {

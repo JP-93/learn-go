@@ -1,19 +1,11 @@
 syntax = "proto3";
-option go_package = "livescore";
 
-service ScoreService{
-    rpc ListMatches(ListMatchesRequest) returns(ListMatchesResponse);
-}
+package api.v1;
 
-message ListMatchesRequest{
-    string country = 1;
-}
+import "google/protobuf/timestamp.proto";
 
-message MatchScoreResponse{
-    string score = 1;
-    bool live = 2;
-}
-
-message ListMatchesResponse {
-    repeated MatchScoreResponse scores = 1;
+message Activity{
+    int32 id = 1;
+    google.protobuf.Timestamp time = 2;
+    string description = 3;
 }
