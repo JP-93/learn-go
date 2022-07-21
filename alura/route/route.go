@@ -48,10 +48,44 @@ func delete(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", 301) // fazer redirect apos a deleção
 }
 
+func edit(w http.ResponseWriter, r *http.Request) {
+	idProduto := r.URL.Query().Get("id")
+	produto := module.EditProduct(idProduto)
+	temp.ExecuteTemplate(w, "edit", produto)
+}
+func update(w http.ResponseWriter, r *http.Request) {
+	if r.Method == "POST" {
+		id := r.FormValue("id")
+		nome := r.FormValue("nome")
+		descricao := r.FormValue("descricao")
+		preco := r.FormValue("preco")
+		qtd := r.FormValue("quantidade")
+
+		idCover, err := strconv.Atoi(id)
+		if err != nil {
+			fmt.Errorf("Conversão invalida %v", err)
+		}
+		prConv, err := strconv.ParseFloat(preco, 64)
+		if err != nil {
+			fmt.Errorf("Conversão invalida %v", err)
+		}
+
+		qtdConv, err := strconv.Atoi(qtd)
+		if err != nil {
+			fmt.Errorf("Conversão invalida %v", err)
+		}
+		module.UpdateProduct(idCover, nome, descricao, prConv, qtdConv)
+
+	}
+	http.Redirect(w, r, "/", 301)
+}
+
 //Responsavel por direcionar as request e executar o codigo que se comunica com o banco de dados e a logica
 func ExecuteRoute() {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/new", new)
 	http.HandleFunc("/insert", insert)
 	http.HandleFunc("/delete", delete)
+	http.HandleFunc("/edit", edit)
+	http.HandleFunc("/update", update)
 }

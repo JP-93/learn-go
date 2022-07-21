@@ -1,4 +1,4 @@
-package main
+package alura
 
 import (
 	"fmt"
@@ -11,7 +11,7 @@ import (
 func main() {
 	route.ExecuteRoute()
 	log.Println("Executando")
-	err := http.ListenAndServe(":8000", nil)
+	err := http.ListenAndServe(":8002", nil)
 	if err != nil {
 		fmt.Errorf("Erro no server %s ", err)
 	}
