@@ -59,6 +59,34 @@ func DeleteData(c *gin.Context) {
 
 }
 
+func EditiData(c *gin.Context) {
+	var edite models.Aluno
+	id := c.Params.ByName("id")
+	database.DB.First(&edite, id)
+	if err := c.ShouldBindJSON(&edite); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"Error": err.Error(),
+		})
+		return
+	}
+	database.DB.Model(&edite).UpdateColumns(edite)
+	c.JSON(http.StatusOK, edite)
+
+}
+
+func FindTodata(c *gin.Context) {
+	var CPFData models.Aluno
+	cpf := c.Param("cpf")
+	database.DB.Where(&models.Aluno{CPF: cpf}).First(&CPFData)
+	if CPFData.ID == 0 {
+		c.JSON(http.StatusNotFound, gin.H{
+			"Not found": "Não encontrado",
+		})
+		return
+	}
+	c.JSON(http.StatusOK, CPFData)
+}
+
 func HandlerRequest() {
 	r := gin.Default()
 	r.GET("/alunos", GetAllData)
@@ -66,5 +94,7 @@ func HandlerRequest() {
 	r.POST("/alunos", CreateNewData)
 	r.GET("/alunos/:id", GetByID)
 	r.DELETE("/alunos/:id", DeleteData)
+	r.PATCH("/alunos/:id", EditiData)
+	r.GET("/alunos/cpf/:cpf", FindTodata)
 	r.Run()
 }
