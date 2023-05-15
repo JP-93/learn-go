@@ -1,4 +1,4 @@
-package alura
+package main
 
 import (
 	"fmt"

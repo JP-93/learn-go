@@ -1,8 +1,9 @@
 package slice
 
-func Slice(numbers []int) (sum int) {
+func Slice(numbers []int) int {
+	sum := 0
 	for _, number := range numbers {
-		number += sum
+		sum += number
 	}
-	return
+	return sum
 }

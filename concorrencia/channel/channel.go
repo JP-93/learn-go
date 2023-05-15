@@ -1,13 +1,45 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
+
+func workers(workerId int, data chan int) {
+	for d := range data {
+		fmt.Printf("Worker %d received %d\n", workerId, d)
+		time.Sleep(time.Second)
+	}
+}
 
 func main() {
-	ch := make(chan int, 1)
 
-	ch <- 1 //  enviando dados para o canal, como escrita
-	<-ch    // recebendo dados do canal, leitura
+	c := make(chan int)
+	qtd := 10
 
-	ch <- 2
-	fmt.Println(<-ch)
+	for i := 0; i < qtd; i++ {
+		go workers(i, c)
+	}
+
+	for i := 0; i < 100; i++ {
+		c <- i
+	}
+
 }
+
+func publish(ch chan int) {
+	for i := 0; i <= 10; i++ {
+		time.Sleep(time.Second)
+		ch <- i
+	}
+}
+
+//ch := make(chan string)
+//
+//go func() {
+//	ch <- "Olan mundo"
+//	ch <- "Nova mensagem"
+//}()
+//
+//fmt.Println(<-ch)
+//fmt.Println(<-ch)

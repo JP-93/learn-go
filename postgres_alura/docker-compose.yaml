@@ -1,7 +1,8 @@
 version: '3'
 services:
   postgres:
-    image: "postgres_alura"
+    container_name: postgres_container
+    image: "postgres"
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
@@ -9,7 +10,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./migrations/script.sql:/docker-entrypoint-initdb.d/script.sql
+      - ./postgres_alura-data:/var/lib/postgresql/data
 
   pgadmin-compose:
     image: dpage/pgadmin4
@@ -18,5 +19,3 @@ services:
       PGADMIN_DEFAULT_PASSWORD: "123456"
     ports:
       - "54321:80"
-    depends_on:
-      - postgres_go

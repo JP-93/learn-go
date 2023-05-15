@@ -31,6 +31,13 @@ func CreateNewData(c *gin.Context) {
 		})
 		return
 	}
+	if err := models.ValidateData(&aluno); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+		return
+	}
+
 	database.DB.Create(&aluno)
 	c.JSON(http.StatusOK, aluno)
 }
@@ -69,6 +76,14 @@ func EditiData(c *gin.Context) {
 		})
 		return
 	}
+
+	if err := models.ValidateData(&edite); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"Error": err.Error(),
+		})
+		return
+	}
+
 	database.DB.Model(&edite).UpdateColumns(edite)
 	c.JSON(http.StatusOK, edite)
 
@@ -87,8 +102,18 @@ func FindTodata(c *gin.Context) {
 	c.JSON(http.StatusOK, CPFData)
 }
 
+func HtmlHandler(c *gin.Context) { // função para renderizar paginas html
+	var alunos []models.Aluno
+	database.DB.Find(&alunos)
+	c.HTML(http.StatusOK, "index.html", gin.H{
+		"alunos": alunos,
+	})
+}
+
 func HandlerRequest() {
 	r := gin.Default()
+	r.LoadHTMLGlob("templates/*")   // informa o local onde o arquivo html está registrado
+	r.Static("/assets", "./assets") // informa o local onde o arquivo css está registrado
 	r.GET("/alunos", GetAllData)
 	r.GET("/:nome", Hello)
 	r.POST("/alunos", CreateNewData)
@@ -96,5 +121,6 @@ func HandlerRequest() {
 	r.DELETE("/alunos/:id", DeleteData)
 	r.PATCH("/alunos/:id", EditiData)
 	r.GET("/alunos/cpf/:cpf", FindTodata)
+	r.GET("/index", HtmlHandler)
 	r.Run()
 }

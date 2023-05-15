@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package v1;
+
+option go_package = "/pb";
+
+service Translation {
+  rpc Translate(TranslationInput) returns (TranslationOutput);
+}
+
+message TranslationInput {
+  string Text = 1;
+  Languages SourceLang = 2;
+  Languages TargetLang = 3;
+  optional Vendors Vendor = 4;
+}
+
+message TranslationOutput {
+  string Text = 1;
+  Languages SourceLang = 2;
+  Languages TargetLang = 3;
+  int32 BilledChars = 4;
+}
+
+enum Languages {
+  NONE = 0;  // this will be the default which will not be returned
+  DE = 1;
+  ES = 2;
+  CZ = 3;
+  FA = 4;
+  ZH = 5;
+  EN = 6;
+}
+
+enum Vendors {
+  GoogleTranslate = 0;
+  DeepL = 1;
+}
+

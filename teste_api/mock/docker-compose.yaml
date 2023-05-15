@@ -1,0 +1,10 @@
+version: '3.2'
+
+services:
+  wiremock-server:
+    image:  wiremock/wiremock:2.35.0
+    container_name: wiremock-server
+    volumes:
+      - ./stub:/home/wiremock
+    ports:
+      - 8080:8080

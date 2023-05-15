@@ -36,7 +36,7 @@ func main() {
 		}
 
 	}
-	fmt.Println("Gasolina: ", k1)
+	fmt.Printf("Gasolina: ", k1)
 	fmt.Println("Alcool: ", k2)
 	fmt.Println("Diesel: ", k3)
 }
