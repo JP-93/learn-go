@@ -1,12 +1,16 @@
 package repository
 
+import "gorm.io/gorm"
+
 type UserValue struct {
-	id       int
-	name     string
-	lastName string
+	gorm.Model
+	ID       int    `json:"id" gorm:"primaryKey"`
+	Name     string `json:"name"`
+	LastName string `json:"last_name"`
 }
 
 type PixValue struct {
-	idPix  int
-	keyPix string
+	gorm.Model
+	ID     int    `json:"id" gorm:"primaryKey"`
+	KeyPix string `json:"key_pix"`
 }

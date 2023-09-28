@@ -1,41 +1,42 @@
 package repository
 
 import (
-	"database/sql"
 	"fmt"
-	"github.com/golang-sql/sqlexp"
+	"log"
+
 	"github.com/learn-go/clean_code/apps/config"
 	_ "github.com/lib/pq"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 )
 
 type PsqlClient interface {
-	DB() sqlexp.Querier
+	DB() *gorm.DB
 }
 
 type ConnPSQL struct {
-	PsqlConn sqlexp.Querier
+	PsqlConn *gorm.DB
 }
 
-func (p *ConnPSQL) DB() sqlexp.Querier {
+func (p *ConnPSQL) DB() *gorm.DB {
 	return p.PsqlConn
 }
 
 var DBInstance *ConnPSQL
 
 func (p *ConnPSQL) Conn(config config.DataBaseConfig) error {
-	connString := fmt.Sprintf("host=%s; user=%s; password=%s; port=%s; dbname=%s; sslmode=%s", config.Host, config.User, config.Password, config.Port, config.DbName, config.SslMode)
-	connectionDB, err := sql.Open("postgres", connString)
+	connString := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", config.Host, config.Port, config.User, config.Password, config.DbName)
+	connectionDB, err := gorm.Open(postgres.Open(connString))
 
 	if err != nil {
-		return fmt.Errorf("error connection dataBase %w", err)
-	}
-	err = connectionDB.Ping()
-	if err != nil {
+		log.Fatal("Error connect database", err)
 		return err
 	}
-	defer connectionDB.Close()
+
 	fmt.Println("success connection")
 	p.PsqlConn = connectionDB
+
+	connectionDB.AutoMigrate(&UserValue{}, &PixValue{})
 
 	return nil
 }

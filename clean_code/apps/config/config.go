@@ -1,12 +1,11 @@
 package config
 
 const (
-	Host     = "127.0.0.1"
+	Host     = "localhost"
 	Port     = "5432"
 	User     = "root"
 	Password = "1234"
 	DbName   = "postgres"
-	SslMode  = "disable"
 )
 
 type DataBaseConfig struct {
@@ -15,7 +14,6 @@ type DataBaseConfig struct {
 	Password string
 	Port     string
 	DbName   string
-	SslMode  string
 }
 
 type Config struct {
@@ -30,6 +28,5 @@ func NewConfig() *Config {
 			Password: Password,
 			Port:     Port,
 			DbName:   DbName,
-			SslMode:  SslMode,
 		}}
 }
